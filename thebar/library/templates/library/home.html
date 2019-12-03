@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends 'library/layout.html'%}
+
+{% block content %}
+   <h4 class="display-4 text-muted text-center">The Bar Exams Revision Questions</h4>
+   {% for answer in answers %}
+        <section class="col-md-8 offset-md-2">
+            <div class="card mt-3">
+                <h5 class="card-header text-capitalize">{{ answer.question.question_title }}</h5>
+                <div class="card-body">
+                    <p class="card-text">{{ answer.question.question_text|linebreaks }}</p>
+                    <hr>
+                    <p>
+                        <a class="btn btn-outline-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            Answer
+                        </a>
+                    </p>
+                    <div class="collapse" id="collapseExample"> 
+                        <p class="card-text">{{ answer.question.question_text|linebreaks }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+   {% endfor %}
+{% endblock content %}
